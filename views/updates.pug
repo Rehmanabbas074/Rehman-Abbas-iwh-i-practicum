@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title Add / Update Contact
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    .container
+      h1 Add / Update Contact
+      h3 Integrating With HubSpot | Practicum
+
+      form(action="/update-cobj" method="POST")
+        .form-group
+          label(for="firstname") Name
+          input(type="text" id="firstname" name="firstname")
+
+        .form-group
+          label(for="email") Email
+          input(type="email" id="email" name="email" required)
+
+        .form-group
+          label(for="phone") Phone
+          input(type="text" id="phone" name="phone")
+
+        button(type="submit") Save Contact
+
+      a.back-link(href="/") ← Return to Homepage
