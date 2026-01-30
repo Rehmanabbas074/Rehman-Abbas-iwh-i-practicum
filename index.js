@@ -21,7 +21,7 @@ app.set("views", path.join(process.cwd(), "views"));
 // CUSTOM OBJECT ID
 // --------------------
 // Replace this with your HubSpot custom object type ID, e.g., "2-55446827"
-const OBJECT_TYPE_ID = process.env.OBJECT_TYPE_ID || "2-55446827";
+const OBJECT_TYPE_ID = process.env.OBJECT_TYPE_ID;
 
 // --------------------
 // HELPER: HUBSPOT FETCH
@@ -56,7 +56,7 @@ app.get("/", (req, res, next) => {
     .then(data => {
       res.render("homepage", {
         title: "Contact Table",
-        records: data.results || []   // 👈 CRITICAL
+        records: data.results || []   
       });
     })
     .catch(next);
@@ -88,11 +88,11 @@ app.post("/update-cobj", (req, res, next) => {
     }),
   })
     .then(() => {
-      console.log("✅ Contact created");
+      console.log(" Contact created");
       res.redirect("/");
     })
     .catch(next);
 });
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(` Server running at http://localhost:${PORT}`);
 });
